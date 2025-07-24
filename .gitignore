@@ -1,0 +1,93 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### Java ###
+*.class
+*.jar
+*.war
+*.ear
+
+### Maven ###
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+.mvn/timing.properties
+
+### Logs ###
+*.log
+logs/
+**/logs/
+
+### IntelliJ ###
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+### Eclipse ###
+.project
+.classpath
+.settings/
+.springBeans
+
+### VS Code ###
+.vscode/
+
+### OS-specific ###
+.DS_Store
+Thumbs.db
+
+### Environment / Security ###
+.env
+.env.local
+*.key
+*.pem
+
+### H2 Database ###
+*.h2.db
+*.mv.db
+*.trace.db
+
+### Spring Boot ###
+spring.log
+
+### Temporary files ###
+*.tmp
+*.bak
+*.swp
+*.swo
+
+### Application-specific ###
+/*.db
+/db/
+
+### Build tools ###
+build/

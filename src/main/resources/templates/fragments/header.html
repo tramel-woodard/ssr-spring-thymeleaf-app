@@ -1,0 +1,11 @@
+<div th:fragment="header">
+    <header style="background-color: #333; color: white; padding: 1em;">
+        <nav style="display: flex; justify-content: space-between; align-items: center;">
+            <h1>SSR Spring Thymeleaf Application</h1>
+            <ul style="list-style: none; display: flex; gap: 1rem; margin: 0; padding: 0;">
+                <li><a th:href="@{/}" style="color: white; text-decoration: none;">Home</a></li>
+                <li><a th:href="@{/about}" style="color: white; text-decoration: none;">About</a></li>
+            </ul>
+        </nav>
+    </header>
+</div>

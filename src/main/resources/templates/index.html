@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spring SSR Thymeleaf Application</title>
-</head>
-<body>
-    <h1 th:text="${message}">Fallback Text</h1>
-</body>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="~{layout/base}">
+    <head>
+        <title>Home Page</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <h1>Home page</h1>
+            <p>Main page for SSR Thymeleaf demo</p>
+        </div>        
+    </body>
 </html>

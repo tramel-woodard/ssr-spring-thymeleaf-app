@@ -72,3 +72,180 @@ footer {
     box-shadow: var(--shadow);
     margin-top: 2rem;
 }
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    font-weight: 500;
+    margin-bottom: 1rem;
+    margin-top: 0rem;
+    color: var(--primary-dark);
+}
+
+h1.brand {
+    color: var(--text-color);
+}
+
+/* Card style for form sections or detail view */
+.card {
+    background-color: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin: 2rem;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--card-bg);
+    box-shadow: var(--shadow);
+}
+
+th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+td a {
+    color: var(--primary-dark);
+    text-decoration: none;
+}
+
+td a:hover {
+    text-decoration: underline;
+}
+
+/* Forms */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+label {
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: var(--primary-color);
+    outline: none;
+}
+
+/* Buttons */
+button,
+a.button {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: inline-block;
+}
+
+button:hover,
+a.button:hover {
+    background-color: var(--primary-color);
+}
+
+button.delete {
+    background-color: #d32f2f; /* Red 700 */
+}
+
+button.delete:hover {
+    background-color: #b71c1c; /* Red 900 */
+}
+
+/* Utility */
+.actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.mt-2 {
+    margin-top: 2rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}
+
+.toast {
+    visibility: hidden;
+    min-width: 15.625rem;
+    max-width: 80%;
+    margin-left: -7.8125rem;
+    background-color: #4caf50;
+    color: white;
+    text-align: center;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 1.875rem;
+    font-size: 1.0625rem;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s, transform 0.5s;
+    transform: translateY(2rem);
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Toast base styles */
+.toast-success {
+    background-color: #4caf50;
+}
+
+.toast-error {
+    background-color: #f44336;
+}
+
+.toast-warning {
+    background-color: #ff9800;
+}
+
+.toast-info {
+    background-color: #2196f3;
+}

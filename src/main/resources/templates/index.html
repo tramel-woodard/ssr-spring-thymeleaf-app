@@ -7,8 +7,12 @@
     </head>
     <body>
         <div layout:fragment="content">
-            <h1>Home page</h1>
-            <p>Main page for SSR Thymeleaf demo</p>
+            <div class="card">
+                <h1>SSR Thymeleaf Spring Application</h1>
+                <p>This is a server-side rendered web application built with Spring Boot and Thymeleaf.</p>
+                <p>Use the navigation bar to browse products or llearn more about the application.</p>
+                <a th:href="@{/products}" class="button mt-2">View Products</a>
+            </div>
         </div>        
     </body>
 </html>

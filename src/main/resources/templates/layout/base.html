@@ -8,6 +8,30 @@
         <link rel="stylesheet" th:href="@{/styles.css}">
     </head>
     <body>
+		<div id="toast" class="toast"
+            th:classappend="${successMessage} ? ' toast-success show' : ''"
+            th:if="${successMessage}"
+            th:text="${successMessage}"
+        ></div>
+
+        <div id="toast-error" class="toast"
+            th:classappend="${errorMessage} ? ' toast-error show' : ''"
+            th:if="${errorMessage}"
+            th:text="${errorMessage}"
+        ></div>
+
+        <div id="toast-warning" class="toast"
+            th:classappend="${warningMessage} ? ' toast-warning show' : ''"
+            th:if="${warningMessage}"
+            th:text="${warningMessage}"
+        ></div>
+
+        <div id="toast-info" class="toast"
+            th:classappend="${infoMessage} ? ' toast-info show' : ''"
+            th:if="${infoMessage}"
+            th:text="${infoMessage}"
+        ></div>
+
         <div th:replace="~{fragments/header :: header}"></div>
 
         <main layout:fragment="content">
@@ -15,5 +39,22 @@
         </main>
 
         <div th:replace="~{fragments/footer :: footer}"></div>
+		<script>
+            document.addEventListener('DOMContentLoaded', function() {
+                const toastIds = [
+                    'toast-success',
+                    'toast-error',
+                    'toast-warning',
+                    'toast-info'
+                ];
+
+                toastIds.forEach(id => {
+                    if (toast) {
+                        toast.classList.add('show');
+                        setTimeout(() => toast.classList.remove('show'), 3000);
+                    }
+                });
+            });
+		</script>
     </body>
 </html>

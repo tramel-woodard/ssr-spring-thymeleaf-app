@@ -2,12 +2,35 @@
 <html xmlns:th="http://www.thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorate="~{layout/base}">
-    <div layout:fragment="content">
-        <div class="card">
-            <h1 th:text="${product.name}">Product Details</h1>
-            <p><strong>Name:</strong> <span th:text="${product.name}"></span></p>
-            <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
-            <a th:href="@{/products}" class="button">Back to Products</a>
+    <head>
+        <title>Product Details</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <div class="card">
+                <h1 th:text="${product.name}">Product Details</h1>
+                <p><strong>Name:</strong> <span th:text="${product.name}"></span></p>
+                <p><strong>Price:</strong> <span th:text="${product.price}"></span></p>
+                <a th:href="@{/products}" class="button">Back to Products</a>
+            </div>
         </div>
-    </div>
+        <!-- JSON-LD Product schema -->
+        <script type="application/ld+json" th:inline="javascript">
+            /*<![CDATA[*/
+            {
+            "@context": "https://schema.org",
+            "@type": "Product",
+            "name": /*[[${jsonLdName}]]*/ "Product",
+            "description": /*[[${metaDescription}?:'Product detail']]*/ "Product detail",
+            "sku": /*[[${product.id}]]*/ "0",
+            "offers": {
+                "@type": "Offer",
+                "price": /*[[${jsonLdPrice}]]*/ 0.0,
+                "priceCurrency": /*[["${jsonLdCurrency}"]]]*/ "USD",
+                "availability": "https://schema.org/InStock"
+            }
+            }
+            /*]]>*/
+        </script>
+    </body>
 </html>

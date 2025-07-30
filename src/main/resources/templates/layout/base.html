@@ -3,7 +3,29 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
         <meta charset="UTF-8">
-        <title layout:title-pattern="$LAYOUT_TITLE - SSR Application">SSR Application</title>
+        <title th:text="${pageTitle ?: 'SSR Application'}">SSR Application</title>
+
+        <!-- Primary SEO-->
+        <meta name="description" th:content="${metaDescription ?: 'Demo SSR Spring Application with Thymeleaf.'}">
+        <meta name="robots" th:content="${metaRobots ?: 'index,follow'}">
+
+        <!-- Canonical -->
+        <link rel="canonical" th:href="${canonicalUrl}" />
+
+        <!-- Open Graph settings -->
+        <meta property="og:type" content="website">
+        <meta property="og:title" th:content="${ogTitle ?: pageTitle ?: 'SSR Application'}">
+        <meta property="og:description" th:content="${ogDescription ?: metaDescription ?: 'Demo SSR Application with Spring Boot and Thymeleaf.'}">
+        <meta property="og:url" th:content="${canonicalUrl}">
+        <meta property="og:image" th:content="${ogImage ?: '/images/og-default.png'}">
+
+        <!-- Twitter settings -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" th:content="${twitterTitle ?: pageTitle ?: 'SSR Application'}">
+        <meta name="twitter:description" th:content="${twitterDescription ?: metaDescription ?: 'Demo SSR Application with Spring Boot and Thymeleaf.'}">
+        <meta name="twitter:image" th:content="${twitterImage ?: '/images/og-default.png'}">
+
+        <!-- fonts and styles -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
         <link rel="stylesheet" th:href="@{/styles.css}">
     </head>

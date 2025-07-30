@@ -21,12 +21,17 @@ public class ProductController {
     @GetMapping
     public String listProducts(Model model) {
         model.addAttribute("products", service.findAll());
+        model.addAttribute("pageTitle", "Products");
+        model.addAttribute("metaDescription", "Browse a list of products with prices and details");
         return "products/list";
     }
 
     @GetMapping("/new")
     public String showCreateForm(Model model) {
         model.addAttribute("product", new Product());
+        model.addAttribute("pageTitle", "Create a Product");
+        model.addAttribute("metaDescription", "Create a new product");
+        model.addAttribute("metaRobots", "noindex,follow");
         return "products/new";
     }
 
@@ -49,6 +54,22 @@ public class ProductController {
         Product product = service.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Product with ID " + id + " not found"));
         model.addAttribute("product", product);
+
+        // SEO settings
+        model.addAttribute("pageTitle", product.getName());
+        model.addAttribute("metaDescription", "View details for product: " + product.getName());
+
+        // canonical left as current URL (for detail pages)
+        // Open Graph & Twitter settings
+        model.addAttribute("ogTitle", product.getName());
+        model.addAttribute("ogDescription", "Price: " + product.getPrice());
+        // once images added, set a product-specific image as ogImage/twitterImage
+
+        // JSON-LD data fields used by template
+        model.addAttribute("jsonLdName", product.getName());
+        model.addAttribute("jsonLdPrice", product.getPrice());
+        model.addAttribute("jsonLdCurrency", "USD");
+
         return "products/view";
     }
 
@@ -57,6 +78,10 @@ public class ProductController {
         Product product = service.findById(id)
             .orElseThrow(() -> new IllegalArgumentException("Cannot edit: Product with ID " + id));
         model.addAttribute("product", product);
+        model.addAttribute("pageTitle", "Edit: " + product.getName());
+        model.addAttribute("metaDescription", "Edit product: " + product.getName());
+        model.addAttribute("metaRobots", "noindex,follow");
+        
         return "products/edit";
     }
 
